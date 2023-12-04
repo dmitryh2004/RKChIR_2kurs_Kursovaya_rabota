@@ -1,0 +1,144 @@
+div.container {
+	width:750px; margin: auto;
+}
+
+div.carusel_unit {
+	display: grid;
+	grid-template-columns: 70px 560px 70px;
+	width: 700px;
+	margin: auto;
+
+	justify-content: center;
+	align-items: center;
+}
+
+div.carusel {
+	--state: 0;
+
+	width: 540px;
+	margin: auto;
+	overflow: hidden;
+	
+	display: flex;
+	flex-flow: row nowrap;
+	position: relative;
+}
+
+div.carusel > div.block {
+	width: 80%;
+	margin: 20px;
+	padding: 20px;
+	background-color: rgba(128, 128, 128, 0.5);
+	border: 2px solid #000;	
+	flex-basis: 50%;
+	flex-grow: 0;
+	flex-shrink: 0;
+	align-self: start;
+	
+	transition-duration: 0.5s;
+	position: relative;
+	left: calc(17% - var(--state) * 67%);
+
+	max-height: 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+img.left, img.right {
+	position: relative;
+	width: 70px;
+	height: 70px;
+	transition-duration: 0.5s;
+	background-color: rgba(255, 255, 255, 0.3);
+
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+}
+
+img.left {
+	justify-self: end;
+}
+
+img.right {
+	justify-self: start;
+}
+
+img.left:hover, img.right:hover {
+	transform: scale(1.2);
+	filter: drop-shadow(2px 4px 6px black);
+	transition-duration: 0.5s;
+}
+
+div.carusel::before {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	background-color: rgba(255, 255, 255, 0.3);
+	content: ' ';
+	
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+	div.carusel_unit {
+		grid-template-columns: 100%;
+		width: 500px;
+	}
+	
+	div.carusel {
+		flex-direction: column;
+	}
+	
+	div.container {
+		width: 550px !important;
+		margin: 0;
+	}
+	
+	div.carusel > div.block {
+		filter: none !important;
+		left: 0;
+		align-self: center;
+		max-height: unset;
+	}
+	
+	img.left, img.right {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	div.carusel_unit {
+		grid-template-columns: 100%;
+		width: 100%;
+	}
+	
+	div.carusel {
+		width: 100%;
+		flex-direction: column;
+	}
+	
+	div.container {
+		width: 100% !important;
+		margin: 0;
+	}
+	
+	div.carusel > div.block {
+		border: none;
+		background-color: rgba(0,0,0,0);
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+		max-width: 100%;
+		left: 0;
+		align-self: center;
+		max-height: unset;
+	}
+	
+	div.carusel::before, img.left, img.right {
+		display: none;
+	}
+}

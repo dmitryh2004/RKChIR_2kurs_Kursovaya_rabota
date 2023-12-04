@@ -1,0 +1,264 @@
+/*Файл css для main.html*/
+:root {
+    --background_opacity: 0.8;
+}
+
+div.more_info {
+    width:100%;
+    height: auto;
+
+    margin: 10px auto;
+
+    border-radius:10px;
+    background-color: rgba(255, 255, 255, 0.33);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items:center;
+
+    opacity:0.999;
+    z-index:1;
+}
+
+div.more_info p {
+    border-radius:10px;
+    background-color: rgba(0,0,0,0);
+
+    display: inline-block;
+    flex-basis: 50%;
+    order: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    margin:10px;
+    padding:10px;
+}
+
+/*оформление ссылок в элементах div класса more_info*/
+div.more_info a {
+    border: 1px solid #000;
+    background-color: rgba(231, 136, 136, 0.33);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    
+    display: inline-block;
+    flex-basis: 30%;
+    order: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    margin:10px;
+    padding: 10px;
+
+    text-shadow: 1px 1px 2px #000;
+    text-align: center;
+
+    transition-duration: 1s;
+}
+
+div.more_info a:visited {
+    color: #088;
+}
+
+div.more_info a:hover {
+    color: #fff;
+    transition-duration: 0.1s;
+}
+
+div.more_info a {
+    color: #0ff;
+}
+
+/*оформление section для main*/
+section {
+    position:relative;
+    padding:20px;
+    width: 90%;
+    margin: 0px;
+    min-height:500px;
+    height: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: visible;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    text-align: center;
+}
+
+section div.content, footer div.content {
+    opacity: 0.999;
+    z-index: 1;
+}
+
+section div.title {
+    opacity: 0.999;
+    z-index: 1;
+}
+
+section div.content[showed="0"] {
+    height: auto;
+    transition-duration: 0.5s;
+}
+
+section div.content[showed="1"] {
+    height: auto;
+    transition-duration: 0.5s;
+}
+
+section div.background, footer div.background {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:100%;
+    border-radius: 0px;
+    background-image: linear-gradient(-30deg, var(--color1), var(--color2));
+    transform: none;
+    z-index: 0;
+    transition-duration: 0.5s;
+}
+
+section div.background {
+    backdrop-filter: blur(5px);
+}
+
+section > div.content:hover + div.background, footer > div.content:hover + div.background {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:100%;
+    background-image: linear-gradient(-30deg, var(--color1), var(--color2));
+    transform: none;
+    border-radius:10px;
+    z-index: 0;
+    transition-duration: 0.5s;
+}
+
+section#history_short {
+    grid-area: first;
+    justify-self: left;
+}
+
+section#work_principles_short {
+    grid-area: second;
+    justify-self: right;
+}
+
+section#electrosamokats_and_cars_short {
+    grid-area: third;
+    justify-self: left;
+}
+
+section#electrosamokats_in_society_short {
+    grid-area: fourth;
+    justify-self: right;
+}
+
+div.grid#main {
+    width:100%;
+    height: auto;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    ". first"
+    "second first"
+    "second third"
+    "fourth third"
+    "fourth .";
+    justify-content: center;
+    justify-items: stretch;
+    align-items: stretch;
+    row-gap: 20px;
+}
+
+div.grid#footer {
+    width:100%;
+    height: auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "yandex_map yandex_map" 
+    "address address";
+    justify-content: center;
+    justify-items: stretch;
+    align-items: flex-start;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+div.grid#footer div#about_href {
+    grid-area: address;
+}
+
+div.grid#footer div.yandex_map {
+    grid-area: yandex_map;
+}
+
+@media screen and (max-width: 1500px) {
+    div.more_info {
+        flex-direction: column;
+    }
+
+    section {
+        min-height: 760px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    div.grid#main {
+        grid-template-rows: repeat(4, auto);
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "first"
+        "second"
+        "third"
+        "fourth";
+        justify-content: center;
+        justify-items: stretch;
+        align-items: stretch;
+        row-gap: 20px;
+    }
+
+    section {
+        min-height: 0px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    section {
+        min-height: 0px;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+	footer {
+		width: 90%;
+		min-width: 0px;
+	}
+	
+	div.grid#footer {
+		grid-template-rows: repeat(2, auto);
+    	grid-template-columns: 1fr;
+    	grid-template-areas:
+    	"address"
+    	"yandex_map";
+	}
+}
+
+@media screen and (max-width: 767px) {
+    header h1 {
+        display: inline;
+    }
+}

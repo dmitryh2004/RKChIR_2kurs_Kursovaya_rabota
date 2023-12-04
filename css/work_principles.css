@@ -1,0 +1,57 @@
+/*css файл для work_principles.html*/
+:root {
+    --color1: rgba(67, 67, 216, 0.33);
+    --color2: rgba(221, 42, 111, 0.1);
+    --bg_square_color: rgba(67, 67, 216, 0.1);
+}
+
+div.grid#main {
+	justify-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: 
+    ". samokat_contain samokat_contain samokat_contain samokat_contain ."
+    "chain_electrosamokat chain_electrosamokat chain_electrosamokat motor_wheel_electrosamokat motor_wheel_electrosamokat motor_wheel_electrosamokat"
+    ". physics physics physics physics ."
+    ;
+}
+
+@media screen and (max-width: 1000px) {
+	div.grid#main {
+	    grid-template-columns: 50% 50%;
+	    grid-template-areas: 
+	    "samokat_contain samokat_contain"
+	    "chain_electrosamokat motor_wheel_electrosamokat"
+	    "physics physics"
+	    ;
+	    column-gap: 10px;
+	}	
+}
+
+@media screen and (max-width: 768px) {
+	div.grid#main {
+	    grid-template-columns: 100%;
+	    grid-template-rows: repeat(4, auto);
+	    grid-template-areas: 
+	    "samokat_contain"
+	    "chain_electrosamokat" 
+	    "motor_wheel_electrosamokat"
+	    "physics"
+	    ;
+	}	
+}
+
+section#samokat_contain {
+    grid-area: samokat_contain;
+}
+
+section#chain_electrosamokat {
+    grid-area: chain_electrosamokat;
+}
+
+section#motor_wheel_electrosamokat {
+    grid-area: motor_wheel_electrosamokat;
+}
+
+section#physics {
+    grid-area: physics;
+}

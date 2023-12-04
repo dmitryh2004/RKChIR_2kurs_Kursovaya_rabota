@@ -1,0 +1,90 @@
+div.image_and_text {
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: rgba(255, 189, 189, 0.75);
+    padding:10px;
+    margin: 10px 0;
+    display: inline-block;
+    height: auto;
+    width: auto;
+}
+
+div.image_and_text div.image:not(.vertical) {
+    border: none;
+    width:25%;
+    min-width: 300px;
+    float: right;
+    text-align: right;
+}
+
+div.image_and_text div.image.vertical {
+	border: none;
+    width:90%;
+    margin: auto;
+    text-align: center;
+}
+
+div.image_and_text div.text {
+    border: none;
+    width:100%;
+}
+
+div.image img {
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin: 20px;
+    width: 80%;
+}
+
+div.image.large img {
+    width: 100%;
+    margin: 20px auto;
+}
+
+div.image_and_text[block_yellow] {
+    background-color: rgba(255, 255, 189, 0.75);
+}
+
+div.image_and_text[block_purple] {
+    background-color: rgba(255, 189, 255, 0.75);
+}
+
+div.image_and_text[block_blue] {
+    background-color: rgba(189, 189, 255, 0.75);
+}
+
+div.image_and_text[block_lightblue] {
+    background-color: rgba(255, 255, 225, 0.75);
+}
+
+div.image_and_text[block_green] {
+    background-color: rgba(189, 255, 189, 0.75);
+}
+
+div.image_and_text[block_orange] {
+    background-color: rgba(255, 225, 189, 0.75);
+}
+
+div.image_and_text[block_white] {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+div.image_and_text[no_color] {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+div.image_and_text[no_border] {
+    border: none;
+    padding: 0px;
+}
+
+@media screen and (max-width: 1500px) {
+	div.image_and_text div.image:not(.vertical) {
+		width:100%;
+	    min-width: 0px;
+	    max-width: 500px;
+	    float: none;
+	    margin: auto;
+	    text-align: center;
+	}
+}
